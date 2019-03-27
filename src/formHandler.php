@@ -28,6 +28,7 @@ class formHandler
 
     public function manageUrls($urls)
     {
+        $mainUrl = $urls['main-url'];
         $results = [];
 
         foreach ($urls as $url) {
@@ -41,7 +42,9 @@ class formHandler
             };
         }
 
-        $this->resultsManager->manageResults($results);
+        $comparision = $this->timeChecker->calculateDifference($results, $mainUrl);
+
+        $this->resultsManager->manageResults($results, $comparision);
 
         return true;
     }
