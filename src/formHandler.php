@@ -2,6 +2,7 @@
 
 require_once "urlValidator.php";
 require_once "timeChecker.php";
+require_once "resultsManager.php";
 
 
 class formHandler
@@ -16,16 +17,18 @@ class formHandler
 
     private $urlValidator;
     private $timeChecker;
+    private $resultsManager;
 
     public function __construct()
     {
         $this->urlValidator = new urlValidator();
         $this->timeChecker = new timeChecker();
-
+        $this->resultsManager = new resultsManager();
     }
 
     public function manageUrls($urls)
     {
+        $results = [];
 
         foreach ($urls as $url) {
 
@@ -34,9 +37,13 @@ class formHandler
                 exit;
             } else {
                 $loadTime = $this->timeChecker->checkLoadTime($url);
-                echo $loadTime;
+                $results[$url] = $loadTime;
             };
         }
+
+        $this->resultsManager->manageResults($results);
+
+//        var_dump($results);
     }
 
 }

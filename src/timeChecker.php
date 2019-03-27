@@ -7,9 +7,11 @@ class timeChecker
      */
     public function checkLoadTime($url)
     {
-        $time = 1;
-        return $time;
+        $time = microtime( true);
+        file_get_contents($url);
+        $time = microtime( true) - $time;
 
+        return round($time * 1000); //output in miliseconds
     }
 
 }
