@@ -43,7 +43,7 @@ class formHandler
 
         $this->resultsManager->manageResults($results);
 
-//        var_dump($results);
+        return true;
     }
 
 }
