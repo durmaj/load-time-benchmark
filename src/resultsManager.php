@@ -34,7 +34,7 @@ class resultsManager
             $txt .= "Faster websites: <br>";
 
             foreach ($comparision['faster'] as $fasterWebsite => $time) {
-                $txt .= "$fasterWebsite - $time miliseconds faster load time";
+                $txt .= "$fasterWebsite - $time miliseconds faster load time <br>";
             }
 
             $txt .= "<br><br>";
@@ -45,7 +45,7 @@ class resultsManager
             $txt .= "Slower websites: <br>";
 
             foreach ($comparision['slower'] as $slowerWebsite => $time) {
-                $txt .= "$slowerWebsite - $time miliseconds slower load time";
+                $txt .= "$slowerWebsite - $time miliseconds slower load time <br>";
             }
         }
         return $txt;

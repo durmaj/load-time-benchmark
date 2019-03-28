@@ -34,8 +34,7 @@ class formHandler
         foreach ($urls as $url) {
 
             if (!$this->urlValidator->checkUrl($url)){
-                echo "Wrong URL: " . $url;
-                exit;
+                continue;
             } else {
                 $loadTime = $this->timeChecker->checkLoadTime($url);
                 $results[$url] = $loadTime;
